@@ -50,7 +50,15 @@
             border-radius: 50vh;
             width: 4vh;
             height: 4vh;
-            background: rgb(101, 152, 255);
+            background: linear-gradient(180deg, #ffebc0, #ffe09e);
+            background-size: cover;
+            text-decoration: none;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            display: flex;
+            color: black;
         }
         .Yuna_container .controller{
             justify-content: space-evenly;
@@ -81,10 +89,10 @@
         }
 
         @keyframes SHOW_YNC {
-            from{visibility: hidden; height: 0vh;}
-            to{visibility: visible; height: 30vh;}
+            from{visibility: hidden; height: 0vh; opacity: 0;}
+            to{visibility: visible; height: 30vh; opacity: 1;}
         }
         @keyframes HIDE_YNC {            
-            from{visibility: visible; height: 30vh;}
-            to{visibility: hidden; height: 0vh;}
+            from{visibility: visible; height: 30vh; opacity: 1;}
+            to{visibility: hidden; height: 0vh; opacity: 0;}
         }

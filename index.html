@@ -11,20 +11,46 @@
 
     <link rel="stylesheet" href="UI.css">
     <link rel="stylesheet" href="YunaUI.css">
+    <link rel="stylesheet" href="widgets.css">
 </head>
 <body>
-    <div class="cont_left"></div>
+    <!----- LEFT CONTAINER ----->
+    <div class="cont_left">
+        <div class="Medium_widget" style="display: flex; text-align: center;flex-direction: column;list-style: none; background: transparent; border: 0;">
+            <h2 style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:2vh;color: rgb(255, 248, 239);"> 04:16 </h2>
+            <h3 style="font-family:Arial,Helvetica,sans-serif;font-weight:lighter;font-size:2.5vh;margin-top:-5.5vh;color: rgb(255, 248, 239);"> Monday, June 5 </h3>
+        </div><!----- CLOCK ----->
+
+        <div class="Medium_widget">
+
+        </div><!----- WEATHER ----->
+
+        <div class="Medium_widget">
+
+        </div><!----- MUSIC ----->
+        
+        <div class="Large_widget">
+
+        </div><!----- PHOTOS ----->
+    </div>
+
+    <!----- RIGHT CONTAINER ----->
     <div class="cont_right"></div>
+
+
+    <!----- Yuna AI Container GOOD!! ----->
     <div class="Yuna_container" id="YNC">
         <div id="conversation">
             <div style="margin-top: 5px;"></div>
         </div>
         <div class="controller">
             <input type="text" id="YNC_input" placeholder="How can I help you today?">
-            <a href="#" onclick="YNC_VoiceON()"><img src="" id="YNC_btn" /></a>
-            <a href="#" onclick="YNC_Send()"><img src="" id="YNC_btn" /></a>
+            <a href="#" id="YNC_btn" class="fa fa-microphone" onclick="YNC_VoiceON()"></a>
+            <a href="#" id="YNC_btn" class="fa fa-send" onclick="YNC_Send()"></a>
         </div>
     </div>
+
+    <!----- DOCK ----->
     <div class="app_dock">
         <a href="http://"><img src="Home.png" id="app_icon" /></a>
         <a href="maps:"><img src="Maps.png" id="app_icon" /></a>
@@ -32,6 +58,7 @@
         <a href="http://"><img src="Browser.png" id="app_icon" /></a>
         <a href="http://"><img src="Settings.png" id="app_icon" /></a>
     </div>
+
     <div class="Activation_bar">
         <a href="#" onclick="Yuna_Hide()" class="fa fa-close" id="Btn"></a>
         <h3 onclick="Yuna_Show()">Yuna AI</h3>

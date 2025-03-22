@@ -1,5 +1,5 @@
 body{
-    background: url(BG.jpg);
+    background: url(https://4kwallpapers.com/images/wallpapers/macos-monterey-wwdc-21-stock-dark-mode-5k-6016x6016-5585.jpg);
     background-size: cover;
     margin: 0;
 }
@@ -59,4 +59,26 @@ body{
     font-size: 14px;
     display: flex;
     color: rgb(71, 0, 0);
+}
+
+.cont_left{
+    width: 33vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 5px solid #111;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.cont_right{
+    width: 67vw;
+    height: 100vh;
+    border-left: 5px solid #111;
+    margin-left: 33vw;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
