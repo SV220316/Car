@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="UI.css">
     <link rel="stylesheet" href="YunaUI.css">
     <link rel="stylesheet" href="widgets.css">
+    <link rel="stylesheet" href="Apps.css">
 </head>
 <body>
     <!----- LEFT CONTAINER ----->
@@ -26,8 +27,9 @@
         </div><!----- WEATHER ----->
 
         <div class="Medium_widget MW_Music" style="background: rgba(40, 40, 40, 0.75);">
-            <img src="" id="music_thumb">
+            <img src="artwork.jpg" id="music_thumb">
             <h3> No song playing </h3>
+            <p>0:00</p>
             <div class="controls">
                 <input type="range" id="duration" value="0">
                 <a href="#" onclick="none()" class="fa fa-backward"></a>
@@ -37,11 +39,20 @@
         </div><!----- MUSIC ----->
         
         <div class="Large_widget LW_Photos">
-            <img src="1.png">
+            <img src="3.png">
         </div><!----- PHOTOS ----->
     </div>
     <!----- RIGHT CONTAINER ----->
-    <div class="cont_right"></div>
+    <div class="cont_right">
+        <div class="App_Container Music_App_Container_Main">
+            <div class="Control_Bar">
+                <a href="#" onclick="closeWindow()" class="fa fa-close"></a>
+                <p> Music </p>
+            </div>
+        </div>
+        <!---<div class="App_Container Music_Browser_Container_Main"></div>
+        <div class="App_Container Music_Settings_Container_Main"></div>>--->
+    </div>
 
 
     <!----- Yuna AI Container GOOD!! ----->
