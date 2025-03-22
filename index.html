@@ -116,7 +116,11 @@
     <script>
         function YNC_Send() {
             var userMessage = document.getElementById("YNC_input").value;
-            if (!userMessage) return;
+            if (!userMessage) {
+                alert("Please enter a message.");
+                return;
+            }
+            
             var chatBox = document.getElementById("conversation");
             var userDiv = document.createElement("div");
             userDiv.className = "message user";
@@ -126,29 +130,41 @@
             document.getElementById("YNC_input").value = "";
             sendMessageToAI(userMessage);
         }
-
+    
         function sendMessageToAI(message) {
             var apiKey = 'AIzaSyBIS3JuuhTFQwwrqu98J4t59j9FQnTiTQ0'; // Replace with your actual API key
             var url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey;
+            
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
+            
             xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    var aiReply = response.candidates[0]?.content?.parts[0]?.text || "Sorry, I couldn't get a response.";
-                    displayBotResponse(aiReply);
-                    alert("Bot Response: " + aiReply);
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        try {
+                            var response = JSON.parse(xhr.responseText);
+                            var aiReply = response.candidates[0]?.content?.parts[0]?.text || "Sorry, I couldn't get a response.";
+                            displayBotResponse(aiReply);
+                            alert("Bot Response: " + aiReply);
+                        } catch (error) {
+                            alert("Error parsing response: " + error.message);
+                        }
+                    } else {
+                        alert("Error: " + xhr.status + " - " + xhr.statusText);
+                    }
                 }
             };
+    
             var requestData = JSON.stringify({
                 "contents": [{ "role": "user", "parts": [{ "text": message }] }],
                 "systemInstruction": { "role": "user", "parts": [{ "text": "You're name is Yuna" }] },
                 "generationConfig": { "temperature": 1, "topK": 40, "topP": 0.95, "maxOutputTokens": 512 }
             });
+            
             xhr.send(requestData);
         }
-
+    
         function displayBotResponse(response) {
             var chatBox = document.getElementById("conversation");
             var botDiv = document.createElement("div");
