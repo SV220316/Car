@@ -1,0 +1,61 @@
+body{
+    background: url(BG.jpg);
+    background-size: cover;
+    margin: 0;
+}
+.app_dock{
+    border-radius: 2.5vh;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    bottom: 0.75vh; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: auto;
+    padding-right: 1.5vh;
+    padding-left: 1.5vh;
+    height: 10vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#app_icon{
+    width: 8vh;
+    height:8vh;
+    margin-top: 0.45vh;
+    margin-left: 0.3vh;
+    margin-right: 0.3vh;
+}
+
+.Activation_bar{
+    width: 15vw;
+    height: 4vh;
+    background: #111;
+    position: fixed;
+    border-bottom-right-radius: 2vh;
+    border-bottom-left-radius: 2vh;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+}
+.Activation_bar h3{
+    color:rgb(113, 113, 113);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+.Activation_bar #Btn{
+    background: rgb(255, 79, 138);
+    border-radius: 50%;
+    width: 2.5vh;
+    height: 2.5vh;
+    margin-left: -2.3vh;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: rgb(71, 0, 0);
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .message {
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .user-message {
+            background-color: #d1e7dd;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #f8d7da;
+            text-align: left;
+        }
+        #user-input {
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with Gemini</h1>
+
+    <div id="chat-box"></div>
+
+    <textarea id="user-input" placeholder="Ask something..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        var apiKey = 'AIzaSyBIS3JuuhTFQwwrqu98J4t59j9FQnTiTQ0';
+
+        function appendMessage(sender, text) {
+            var chatBox = document.getElementById("chat-box");
+            var messageDiv = document.createElement("div");
+            messageDiv.className = "message " + sender + "-message";
+            messageDiv.textContent = text;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+        }
+
+        function sendMessage() {
+            var userInputElement = document.getElementById("user-input");
+            var userMessage = userInputElement.value.trim();
+
+            if (!userMessage) return;
+
+            // Display user message immediately
+            appendMessage("user", "You: " + userMessage);
+            userInputElement.value = ""; // Clear input
+
+            sendToAPI(userMessage);
+        }
+
+        function sendToAPI(userMessage) {
+            var requestData = {
+                "contents": [
+                    { "role": "user", "parts": [{ "text": userMessage }] }
+                ],
+                "systemInstruction": {
+                    "role": "user",
+                    "parts": [{ "text": "Your name is Yuna" }]
+                },
+                "generationConfig": {
+                    "temperature": 1,
+                    "topK": 40,
+                    "topP": 0.95,
+                    "maxOutputTokens": 8192
+                }
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        var assistantMessage = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) || "Sorry, I couldn't get a response.";
+                        appendMessage("bot", "Gemini: " + assistantMessage);
+                    } else {
+                        appendMessage("bot", "Error: " + xhr.statusText);
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify(requestData));
+        }
+    </script>
+</body>
+</html>
