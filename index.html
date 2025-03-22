@@ -3,121 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini Chatbot</title>
+    <title>YunaAI Portable</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
+        body{
+            background: linear-gradient(45deg, rgb(112, 0, 173), rgb(175, 0, 73));
+            background-size: cover;
         }
-        #chat-box {
-            border: 1px solid #ccc;
+        .app_dock{
+            border-radius: 2.5vh;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            bottom: 0.75vh; /* Adjust the distance from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            width: auto;
+            padding-right: 1.5vh;
+            padding-left: 1.5vh;
+            height: 10vh;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #app_icon{
+            width: 8h;
+            height:8vh;
+            margin-top: 0.45vh;
+            margin-left: 0.3vh;
+            margin-right: 0.3vh;
+        }
+
+        .Yuna_container{
+            position: fixed;
+            width: 50vw;
+            height: 30vh;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2.5vh;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 0.75vh;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+        .message{
+            max-width: 80%;
+            margin: 5px;
             padding: 10px;
-            margin-bottom: 10px;
-            height: 300px;
-            overflow-y: auto;
-            background-color: #f9f9f9;
+            border-radius: 10px;
+            display: inline-block;
         }
-        .message {
-            padding: 5px;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            display: block;
+        .user{
+            align-self: flex-end;
+            background: linear-gradient(180deg, #ffebc0, #ffd67d);
+            padding: 10px;
+            opacity: 1;
+            animation: fadeIN 0.5s;
+            background-size: cover;
+            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
         }
-        .user-message {
-            background-color: #d1e7dd;
-            text-align: right;
+        @keyframes fadeIN {
+            from{opacity: 0;}
+            to{opacity: 1;}
         }
-        .bot-message {
-            background-color: #f8d7da;
-            text-align: left;
+        .bot{
+            align-self: flex-start;
+            opacity: 1;
+            animation: fadeIN 0.5s;
+            background: linear-gradient(180deg, #ffffff, #f3f3f3);
+            padding: 10px;
+            background-size: cover;
+            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
         }
-        #user-input {
+        #YNC_btn{
+            border-radius: 50vh;
+            width: 4vh;
+            height: 4vh;
+            background: rgb(101, 152, 255);
+        }
+        .Yuna_container .controller{
+            justify-content: space-evenly;
+            display: flex;
+            align-items: center;
             width: 100%;
-            height: 50px;
-            padding: 10px;
-            margin-top: 10px;
-            box-sizing: border-box;
+            height: 22.5%;
+            background: rgba(255, 255, 255, 0.5);
+            border-top: 0.1vh solid white;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
+        
+        .Yuna_container #conversation{
+            width: 100%;
+            height: 77.5%;
+            overflow-y: scroll;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
-        button:hover {
-            background-color: #45a049;
+        #YNC_input{
+            width: 79%;
+            background: rgba(125, 125, 125, 0.2);
+            border-radius: 1.5vh;
+            border-style: none;
+            font-size: 20px;
+            padding: 5px 10px 5px 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Chat with Gemini</h1>
-
-    <div id="chat-box"></div>
-
-    <textarea id="user-input" placeholder="Ask something..."></textarea>
-    <button onclick="sendMessage()">Send</button>
-
+    <div class="cont_left"></div>
+    <div class="cont_right"></div>
+    <div class="Yuna_container">
+        <div id="conversation"></div>
+        <div class="controller">
+            <input type="text" id="YNC_input" placeholder="How can I help you today?">
+            <a onclick="YNC_VoiceON()"><img src="" id="YNC_btn" /></a>
+            <a href="#" onclick="YNC_Send()"><img src="" id="YNC_btn" /></a>
+        </div>
+    </div>
+    <div class="app_dock">
+        <a href="http://"><img src="Home.png" id="app_icon" /></a>
+        <a href="http://"><img src="Maps.png" id="app_icon" /></a>
+        <a href="http://"><img src="Music.png" id="app_icon" /></a>
+        <a href="http://"><img src="Browser.png" id="app_icon" /></a>
+        <a href="http://"><img src="Settings.png" id="app_icon" /></a>
+    </div>
     <script>
         var apiKey = 'AIzaSyBIS3JuuhTFQwwrqu98J4t59j9FQnTiTQ0';
-
-        function appendMessage(sender, text) {
-            var chatBox = document.getElementById("chat-box");
-            var messageDiv = document.createElement("div");
-            messageDiv.className = "message " + sender + "-message";
-            messageDiv.textContent = text;
-            chatBox.appendChild(messageDiv);
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
-        }
-
-        function sendMessage() {
-            var userInputElement = document.getElementById("user-input");
-            var userMessage = userInputElement.value.trim();
-
+    
+        function YNC_Send() {
+            var userMessage = document.getElementById("YNC_input").value;
             if (!userMessage) return;
-
-            // Display user message immediately
-            appendMessage("user", "You: " + userMessage);
-            userInputElement.value = ""; // Clear input
-
-            sendToAPI(userMessage);
-        }
-
-        function sendToAPI(userMessage) {
+    
+            var chatBox = document.getElementById("conversation");
+            chatBox.innerHTML += "<div class='message user'>" + userMessage + "</div>";
+            chatBox.scrollTop = chatBox.scrollHeight;
+    
+            document.getElementById("YNC_input").value = "";
+    
             var requestData = {
-                "contents": [
-                    { "role": "user", "parts": [{ "text": userMessage }] }
-                ],
-                "systemInstruction": {
-                    "role": "user",
-                    "parts": [{ "text": "Your name is Yuna" }]
-                },
-                "generationConfig": {
-                    "temperature": 1,
-                    "topK": 40,
-                    "topP": 0.95,
-                    "maxOutputTokens": 8192
-                }
+                "contents": [{ "role": "user", "parts": [{ "text": userMessage }] }],
+                "systemInstruction": { "role": "user", "parts": [{ "text": "You're name is Yuna" }] },
+                "generationConfig": { "temperature": 1, "topK": 40, "topP": 0.95, "maxOutputTokens": 8192 }
             };
-
+    
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey, true);
+            xhr.open("POST", "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey, true);
             xhr.setRequestHeader("Content-Type", "application/json");
-
+    
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);
-                        var assistantMessage = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) || "Sorry, I couldn't get a response.";
-                        appendMessage("bot", "Gemini: " + assistantMessage);
+                        var assistantMessage = "Sorry, I couldn't get a response.";
+    
+                        if (data.candidates && data.candidates.length > 0 &&
+                            data.candidates[0].content && data.candidates[0].content.parts &&
+                            data.candidates[0].content.parts.length > 0) {
+                            assistantMessage = data.candidates[0].content.parts[0].text;
+                        }
+    
+                        chatBox.innerHTML += "<div class='message bot'>" + assistantMessage + "</div>";
                     } else {
-                        appendMessage("bot", "Error: " + xhr.statusText);
+                        chatBox.innerHTML += "<div class='message bot'>Error: " + xhr.status + "</div>";
                     }
+                    chatBox.scrollTop = chatBox.scrollHeight;
                 }
             };
-
+    
             xhr.send(JSON.stringify(requestData));
         }
-    </script>
+    </script>    
+    
 </body>
 </html>
