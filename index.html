@@ -16,24 +16,30 @@
 <body>
     <!----- LEFT CONTAINER ----->
     <div class="cont_left">
-        <div class="Medium_widget" style="display: flex; text-align: center;flex-direction: column;list-style: none; background: transparent; border: 0;">
-            <h2 style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:2vh;color: rgb(255, 248, 239);"> 04:16 </h2>
-            <h3 style="font-family:Arial,Helvetica,sans-serif;font-weight:lighter;font-size:2.5vh;margin-top:-5.5vh;color: rgb(255, 248, 239);"> Monday, June 5 </h3>
+        <div class="nnn">Catalyst YunaAI</div>
+        <div class="Medium_widget" style="height: 12vh; display: flex; text-align: center;flex-direction: column;list-style: none; border: 0;">
+            <h2 id="time" style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:-0.75vh;color: rgb(255, 248, 239);"> 04:16 </h2>
+            <h3 id="date" style="font-family:Arial,Helvetica,sans-serif;font-weight:lighter;font-size:2.5vh;margin-top:-5.5vh;color: rgb(255, 248, 239);"> Monday, June 5 </h3>
         </div><!----- CLOCK ----->
 
         <div class="Medium_widget">
-
         </div><!----- WEATHER ----->
 
-        <div class="Medium_widget">
-
+        <div class="Medium_widget MW_Music" style="background: rgba(40, 40, 40, 0.75);">
+            <img src="" id="music_thumb">
+            <h3> No song playing </h3>
+            <div class="controls">
+                <input type="range" id="duration" value="0">
+                <a href="#" onclick="none()" class="fa fa-backward"></a>
+                <a href="#" onclick="none()" class="fa fa-play"></a>
+                <a href="#" onclick="none()" class="fa fa-forward"></a>
+            </div>   
         </div><!----- MUSIC ----->
         
-        <div class="Large_widget">
-
+        <div class="Large_widget LW_Photos">
+            <img src="1.png">
         </div><!----- PHOTOS ----->
     </div>
-
     <!----- RIGHT CONTAINER ----->
     <div class="cont_right"></div>
 
