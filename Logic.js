@@ -52,3 +52,17 @@ function openSettings(){
     console.log("loading Settings");
 
 }
+function LOGIC_ON() {
+    let element = document.getElementById("BSI");
+    element.style.display = "flex";
+    element.style.opacity = "1";
+    element.style.transition = "opacity 1s ease-out";
+
+    setTimeout(() => {
+        element.style.opacity = "0";
+
+        setTimeout(() => {
+            element.style.display = "none";
+        }, 1000);
+    }, 5000);
+}
