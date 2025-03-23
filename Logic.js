@@ -63,6 +63,25 @@ function LOGIC_ON() {
 
         setTimeout(() => {
             element.style.display = "none";
+            console.log("Booted Succesfully");
+            animateHome();
         }, 1000);
     }, 5000);
+}
+
+function animateHome(){
+    var dock = document.getElementById("app_dock");
+    dock.style.animation = "show_dock";
+    dock.style.animationDuration = "1.5s"
+    dock.style.bottom = "0.75vh";
+
+    var ACB = document.getElementById("Activation_bar");
+    ACB.style.animation = "show_ACB";
+    ACB.style.animationDuration = "1.5s"
+    ACB.style.top = "0vh";
+
+    var LC = document.getElementById("LC");
+    LC.style.marginLeft = "0vh";
+    LC.style.animation = "show_LC";
+    LC.style.animationDuration = "1.5s"
 }

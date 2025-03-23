@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>YunaAI Portable</title>
+    <title>Toyota CatalystOS</title>
 
     <script src="YunaAI_Portable.js" defer></script>
     <script src="Logic.js" defer></script>
@@ -17,15 +17,17 @@
 <body onload="LOGIC_ON()">
     <div class="boot_screen" id="BSI">
         <div class="center">
-            <img src="TOYOTA.png" />
-        <h1> TOYOTA </h1>
+            <img src="TOdYOTA.png" />
+        <h1> ghjkjuyghvbnm </h1>
         <h3> CatalystOS: The Next-Gen Car OS, Powered by Yuna AI </h3>
         <h4> Developed by Derek Ronquillo </h4>
         </div>
         
-    </div>
+    </div><!----- BOOT SCREEN ----->
+
+
     <!----- LEFT CONTAINER ----->
-    <div class="cont_left">
+    <div class="cont_left" id="LC">
         <div class="nnn">Catalyst YunaAI</div>
         <div class="Medium_widget" style="height: 12vh; display: flex; text-align: center;flex-direction: column;list-style: none; border: 0;">
             <h2 id="time" style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:-0.75vh;color: rgb(255, 248, 239);"> 04:16 </h2>
@@ -51,6 +53,7 @@
             <img src="3.png">
         </div><!----- PHOTOS ----->
     </div>
+
     <!----- RIGHT CONTAINER ----->
     <div class="cont_right">
         <div class="App_Container Music_App_Container_Main">
@@ -77,7 +80,7 @@
     </div>
 
     <!----- DOCK ----->
-    <div class="app_dock">
+    <div class="app_dock" id="app_dock">
         <a href="http://"><img src="Home.png" id="app_icon" /></a>
         <a href="maps:"><img src="Maps.png" id="app_icon" /></a>
         <a href="http://"><img src="Music.png" id="app_icon" /></a>
@@ -85,7 +88,7 @@
         <a href="http://"><img src="Settings.png" id="app_icon" /></a>
     </div>
 
-    <div class="Activation_bar">
+    <div class="Activation_bar" id="Activation_bar">
         <a href="#" onclick="Yuna_Hide()" class="fa fa-close" id="Btn"></a>
         <h3 onclick="Yuna_Show()">Yuna AI</h3>
     </div>

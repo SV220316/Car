@@ -9,7 +9,7 @@ body{
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: fixed;
-    bottom: 0.75vh; /* Adjust the distance from the bottom */
+    bottom: -12vh; /* Adjust the distance from the bottom */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -28,6 +28,18 @@ body{
     margin-right: 0.3vh;
 }
 
+@keyframes show_dock {
+    from{bottom: -12vh;}
+    to{bottom: 0.75vh;}
+}
+@keyframes show_ACB {
+    from{top: -8vh;}
+    to{top: 0vh;}
+}
+@keyframes show_LC {
+    from{margin-left: -47vh;}
+    to{margin-left: 0vh;}
+}
 .Activation_bar{
     width: 15vw;
     height: 4vh;
@@ -37,7 +49,7 @@ body{
     position: fixed;
     border-bottom-right-radius: 2vh;
     border-bottom-left-radius: 2vh;
-    top: 0;
+    top: -8vh;
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
@@ -73,6 +85,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
+    margin-left: -47vh;
     list-style: none;
     padding: 0;
     display: flex;
