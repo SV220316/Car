@@ -60,7 +60,7 @@
         </div><!----- MUSIC ----->
         
         <div class="Large_widget LW_Photos">
-            <img src="ulzzang.jpg">
+            <img src="ulzzang2.jpg" id="LW_Photos_img">
             <h3>Featured image</h3>
         </div><!----- PHOTOS ----->
     </div>
@@ -114,8 +114,16 @@
             </div>
                 
         </div>
-        <!---<div class="App_Container Music_Browser_Container_Main"></div>
-        <div class="App_Container Music_Settings_Container_Main"></div>>--->
+        <div class="App_Container Browser_Container_Main" id="Browser_Window">
+            <div class="Control_Bar" style="background: rgba(0, 0, 0, 0.75);">
+                <a href="#" onclick="App_Control('O_Browser')" class="fa fa-close"></a>
+                <p> Browser </p>
+            </div>
+                <div class="content">
+                    <iframe id="BWMS_frame" frameborder="0"></iframe>
+                </div>
+        </div>
+        <!--<div class="App_Container Settings_Container_Main"></div>-->
     </div>
 
 
@@ -136,7 +144,7 @@
     <div class="app_dock" id="app_dock">
         <a href="#" onclick="App_Control('I_Music')"><img src="Music.png" id="app_icon" /></a>
         <a href="maps:"><img src="Maps.png" id="app_icon" /></a>
-        <a href="http://"><img src="Browser.png" id="app_icon" /></a>
+        <a href="#" onclick="App_Control('I_Browser')"><img src="Browser.png" id="app_icon" /></a>
         <a href="http://"><img src="Settings.png" id="app_icon" /></a>
     </div>
 

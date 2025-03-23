@@ -29,7 +29,7 @@ function Core(){
             console.log("Booted Succesfully");
             animateHome();
         }, 1000);
-    }, 5000);
+    }, 50);
 }
 
 function Yuna_CTRL(ctrl){
@@ -87,10 +87,14 @@ function App_Control(cmd){
     if(cmd == "I_Browser"){
         Browser_window.style.visibility = "visible";
         Browser_window.style.opacity = '1';
+        let iframe = document.getElementById("BWMS_frame");
+        iframe.src = "https://www.google.com/webhp?igu=1";
     }
     else if(cmd == "O_Browser"){
         Browser_window.style.visibility = "hidden";
         Browser_window.style.opacity = '0';
+        let iframe = document.getElementById("BWMS_frame");
+        iframe.src = "about:blank";
     }
 }
 
@@ -113,3 +117,12 @@ function filterLibrary(category) {
         library.style.display = 'grid';
     }
 }
+
+let images = ["ulzzang.jpg", "ulzzang2.jpg"];
+let index = 0;
+
+setInterval(() => {
+    var img = document.getElementById("LW_Photos_img");
+    img.src = images[index];
+    index = (index + 1) % images.length; // Toggle between 0 and 1
+}, 20000);
