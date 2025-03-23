@@ -104,7 +104,9 @@ body{
     top: 0;
     left: 0;
 }
-
+.hidden {
+    display: none;
+}
 .nnn{
     width:30vw;
     border-radius: 2.5vh;

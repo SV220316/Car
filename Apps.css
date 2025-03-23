@@ -1,3 +1,4 @@
+/* APP COMPONENTS */
 .App_Container{
     width: 65vw;
     height: 83.5vh;
@@ -37,11 +38,21 @@
     display: block;
     width: 90%;
 }
-.Music_App_Container_Main{
+
+
+/* MUSIC APP */
+.Music_App_Container_Main{      /* GROUP 1 */
     background: linear-gradient(-50deg, #D72638, #9D0191);
     background-size: cover;
 }
-.Music_App_Container_Main .Sidebar{
+.Music_App_Container_Main .content{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: calc(83.5vh - 6vh);
+}
+
+.Music_App_Container_Main .Sidebar{     /* GROUP 2 */
     width: 22vw;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -50,20 +61,11 @@
     display: flex;
     flex-direction: column;
 }
-
 .Music_App_Container_Main .Sidebar p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #d8d8d8;
 }
-
-.Music_App_Container_Main .content{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: calc(83.5vh - 6vh);
-}
-
 .Music_App_Container_Main .Sidebar a{
     background: rgb(14, 0, 36);
     width: calc(100% - 20px);
@@ -75,8 +77,9 @@
     border-radius: 1vh;
     margin-top: 1vh;
     border: 1px solid #2b2b2b;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
-
 .Music_App_Container_Main .Sidebar a:focus, 
 .Music_App_Container_Main .Sidebar a:focus-visible {
     background: rgb(114, 43, 255);
@@ -84,26 +87,23 @@
     outline: none;
 }
 
-.Music_App_Container_Main .Sidebar a {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-.Music_App_Container_Main .library {
+.Music_App_Container_Main .library {        /* GROUP 3 */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
     padding: 20px;
     width: 78vw;
+    overflow-y: scroll;
 }
 .Music_App_Container_Main .album {
-    width: 100%;
+    width: auto;
     aspect-ratio: 1 / 1;
     background-color: #444;
+    border: 1px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 1.5vh;
     font-size: 14px;
 }
 .Music_App_Container_Main .album img {

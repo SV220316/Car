@@ -39,12 +39,14 @@ function Yuna_CTRL(ctrl){
         YNC.style.height = "30vh";
         YNC.style.animation = "SHOW_YNC";
         YNC.style.animationDuration = "1s";
+        document.getElementById("Btn").style.display = "flex";
     }
     if(ctrl == "off"){
         YNC.style.visibility = "hidden";
         YNC.style.height = "0vh";
         YNC.style.animation = "HIDE_YNC";
         YNC.style.animationDuration = "0.5s";
+        document.getElementById("Btn").style.display = "none";
     }
 }
 
@@ -95,16 +97,16 @@ function App_Control(cmd){
 function filterLibrary(category) {
     let albums = document.querySelectorAll('.album');
     let library = document.getElementById('library');
-    
+
     albums.forEach(album => {
-        album.classList.add('hidden');
+        album.style.display = 'none'; // Hide all albums
     });
-    
+
     let visibleAlbums = document.querySelectorAll('.' + category);
     visibleAlbums.forEach(album => {
-        album.classList.remove('hidden');
+        album.style.display = 'block'; // Show only the filtered albums
     });
-    
+
     if (visibleAlbums.length === 0) {
         library.style.display = 'none';
     } else {

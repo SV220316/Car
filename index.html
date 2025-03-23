@@ -72,8 +72,9 @@
                 <p> Music </p>
             </div>
             <div class="content">
-                <div class="Sidebar">
+                <div class="Sidebar library-nav">
                     <p>Libraries:</p>
+                    <a href="#" onclick="filterLibrary('ALS')"> All Songs </a>
                     <a href="#" onclick="filterLibrary('recently-added')"> Recently Added </a>
                     <a href="#" onclick="filterLibrary('oldies-rock')"> Oldies Rock </a>
                     <a href="#" onclick="filterLibrary('jazz')"> Jazz </a>
@@ -83,15 +84,31 @@
                     <a href="#" onclick="filterLibrary('gfriend')"> GFRIEND </a>
                     <a href="#" onclick="filterLibrary('korean-ost')"> Korean OST </a>
                 </div>
-                <div class="library">
-                    <div class="album recently-added"><img src="album1.jpg" alt="Album 1"></div>
-                    <div class="album oldies-rock"><img src="album2.jpg" alt="Album 2"></div>
-                    <div class="album jazz"><img src="album3.jpg" alt="Album 3"></div>
-                    <div class="album instrumentals"><img src="album4.jpg" alt="Album 4"></div>
-                    <div class="album pop-city"><img src="album5.jpg" alt="Album 5"></div>
-                    <div class="album iu"><img src="album6.jpg" alt="IU Album"></div>
-                    <div class="album gfriend"><img src="album7.jpg" alt="GFRIEND Album"></div>
-                    <div class="album korean-ost"><img src="album8.jpg" alt="Korean OST Album"></div>
+                <div class="library" id="library">
+                    <div class="album ALS recently-added"><img src="album1.jpg" alt="Album 1"></div>
+                    <div class="album ALS oldies-rock"><img src="album2.jpg" alt="Album 2"></div>
+                    <div class="album ALS jazz"><img src="album3.jpg" alt="Album 3"></div>
+                    <div class="album ALS instrumentals"><img src="album4.jpg" alt="Album 4"></div>
+                    <div class="album ALS pop-city"><img src="album5.jpg" alt="Album 5"></div>
+                    <div class="album ALS iu"><img src="album6.jpg" alt="IU Album"></div>
+                    <div class="album ALS gfriend"><img src="album7.jpg" alt="GFRIEND Album"></div>
+                    <div class="album ALS korean-ost"><img src="album8.jpg" alt="Korean OST Album"></div>
+                    <div class="album ALS recently-added"><img src="album1.jpg" alt="Album 1"></div>
+                    <div class="album ALS oldies-rock"><img src="album2.jpg" alt="Album 2"></div>
+                    <div class="album ALS jazz"><img src="album3.jpg" alt="Album 3"></div>
+                    <div class="album ALS instrumentals"><img src="album4.jpg" alt="Album 4"></div>
+                    <div class="album ALS pop-city"><img src="album5.jpg" alt="Album 5"></div>
+                    <div class="album ALS iu"><img src="album6.jpg" alt="IU Album"></div>
+                    <div class="album ALS gfriend"><img src="album7.jpg" alt="GFRIEND Album"></div>
+                    <div class="album ALS korean-ost"><img src="album8.jpg" alt="Korean OST Album"></div>
+                    <div class="album ALS recently-added"><img src="album1.jpg" alt="Album 1"></div>
+                    <div class="album ALS oldies-rock"><img src="album2.jpg" alt="Album 2"></div>
+                    <div class="album ALS jazz"><img src="album3.jpg" alt="Album 3"></div>
+                    <div class="album ALS instrumentals"><img src="album4.jpg" alt="Album 4"></div>
+                    <div class="album ALS pop-city"><img src="album5.jpg" alt="Album 5"></div>
+                    <div class="album ALS iu"><img src="album6.jpg" alt="IU Album"></div>
+                    <div class="album ALS gfriend"><img src="album7.jpg" alt="GFRIEND Album"></div>
+                    <div class="album ALS korean-ost"><img src="album8.jpg" alt="Korean OST Album"></div>
                 </div>
             </div>
                 
@@ -125,7 +142,7 @@
 
     <!----- MISC ----->
     <div class="Activation_bar" id="Activation_bar">
-        <a href="#" onclick="Yuna_CTRL('off')" class="fa fa-close" id="Btn"></a>
+        <a href="#" onclick="Yuna_CTRL('off')" class="fa fa-close" style="display: none;" id="Btn"></a>
         <h3 onclick="Yuna_CTRL('on')">Yuna AI</h3>
     </div>
 </body>
