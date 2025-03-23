@@ -91,3 +91,23 @@ function App_Control(cmd){
         Browser_window.style.opacity = '0';
     }
 }
+
+function filterLibrary(category) {
+    let albums = document.querySelectorAll('.album');
+    let library = document.getElementById('library');
+    
+    albums.forEach(album => {
+        album.classList.add('hidden');
+    });
+    
+    let visibleAlbums = document.querySelectorAll('.' + category);
+    visibleAlbums.forEach(album => {
+        album.classList.remove('hidden');
+    });
+    
+    if (visibleAlbums.length === 0) {
+        library.style.display = 'none';
+    } else {
+        library.style.display = 'grid';
+    }
+}

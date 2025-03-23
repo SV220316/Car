@@ -34,7 +34,7 @@
     <div class="cont_left" id="LC">
         <div class="nnn">
             <a href="" class="fa fa-refresh"></a>
-            Toyota CatalystOS
+            Toyota
             <a style="color:#ffc353;" class="fa-solid fa-car-battery"></a>
             <a style="color:#ffc353;" class="fa-solid fa-circle-exclamation"></a>
             <a style="color:#58ff58;" class="fa-solid fa-temperature-low"></a>
@@ -67,22 +67,34 @@
     <!----- RIGHT CONTAINER ----->
     <div class="cont_right">
         <div class="App_Container Music_App_Container_Main" id="Music_Window">
-            <div class="Control_Bar" style="background: rgba(0, 0, 0, 0.6);">
+            <div class="Control_Bar" style="background: rgba(0, 0, 0, 0.75);">
                 <a href="#" onclick="App_Control('O_Music')" class="fa fa-close"></a>
                 <p> Music </p>
             </div>
-            <div class="Sidebar">
-                <p>Libraries:</p>
-                <a href="#"> Recently Added </a>
-                <a href="#"> Oldies Rock </a>
-                <a href="#"> Jazz </a>
-                <a href="#"> Instrumentals </a>
-                <a href="#"> Pop & City </a>
-                <a href="#"> IU </a>
-                <a href="#"> GFRIEND </a>
-                <a href="#"> Korean OST</a>
+            <div class="content">
+                <div class="Sidebar">
+                    <p>Libraries:</p>
+                    <a href="#" onclick="filterLibrary('recently-added')"> Recently Added </a>
+                    <a href="#" onclick="filterLibrary('oldies-rock')"> Oldies Rock </a>
+                    <a href="#" onclick="filterLibrary('jazz')"> Jazz </a>
+                    <a href="#" onclick="filterLibrary('instrumentals')"> Instrumentals </a>
+                    <a href="#" onclick="filterLibrary('pop-city')"> Pop & City </a>
+                    <a href="#" onclick="filterLibrary('iu')"> IU </a>
+                    <a href="#" onclick="filterLibrary('gfriend')"> GFRIEND </a>
+                    <a href="#" onclick="filterLibrary('korean-ost')"> Korean OST </a>
+                </div>
+                <div class="library">
+                    <div class="album recently-added"><img src="album1.jpg" alt="Album 1"></div>
+                    <div class="album oldies-rock"><img src="album2.jpg" alt="Album 2"></div>
+                    <div class="album jazz"><img src="album3.jpg" alt="Album 3"></div>
+                    <div class="album instrumentals"><img src="album4.jpg" alt="Album 4"></div>
+                    <div class="album pop-city"><img src="album5.jpg" alt="Album 5"></div>
+                    <div class="album iu"><img src="album6.jpg" alt="IU Album"></div>
+                    <div class="album gfriend"><img src="album7.jpg" alt="GFRIEND Album"></div>
+                    <div class="album korean-ost"><img src="album8.jpg" alt="Korean OST Album"></div>
+                </div>
             </div>
-            <div class="content"></div>
+                
         </div>
         <!---<div class="App_Container Music_Browser_Container_Main"></div>
         <div class="App_Container Music_Settings_Container_Main"></div>>--->
