@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <title>Toyota CatalystOS</title>
 
     <script src="YunaAI_Portable.js" defer></script>
@@ -14,11 +16,13 @@
     <link rel="stylesheet" href="widgets.css">
     <link rel="stylesheet" href="Apps.css">
 </head>
-<body onload="LOGIC_ON()">
+<body onload="Core()">
+
+
     <div class="boot_screen" id="BSI">
         <div class="center">
-            <img src="TOdYOTA.png" />
-        <h1> ghjkjuyghvbnm </h1>
+            <img src="TOYOTA.png" />
+        <h1> TOYOTA </h1>
         <h3> CatalystOS: The Next-Gen Car OS, Powered by Yuna AI </h3>
         <h4> Developed by Derek Ronquillo </h4>
         </div>
@@ -28,7 +32,7 @@
 
     <!----- LEFT CONTAINER ----->
     <div class="cont_left" id="LC">
-        <div class="nnn">Catalyst YunaAI</div>
+        <div class="nnn"><a href="" class="fa fa-refresh"></a> Toyota CatalystOS</div>
         <div class="Medium_widget" style="height: 12vh; display: flex; text-align: center;flex-direction: column;list-style: none; border: 0;">
             <h2 id="time" style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:-0.75vh;color: rgb(255, 248, 239);"> 04:16 </h2>
             <h3 id="date" style="font-family:Arial,Helvetica,sans-serif;font-weight:lighter;font-size:2.5vh;margin-top:-5.5vh;color: rgb(255, 248, 239);"> Monday, June 5 </h3>
@@ -56,11 +60,23 @@
 
     <!----- RIGHT CONTAINER ----->
     <div class="cont_right">
-        <div class="App_Container Music_App_Container_Main">
+        <div class="App_Container Music_App_Container_Main" id="Music_Window">
             <div class="Control_Bar">
-                <a href="#" onclick="closeWindow()" class="fa fa-close"></a>
+                <a href="#" onclick="closeWindow('Music_Window')" class="fa fa-close"></a>
                 <p> Music </p>
             </div>
+            <div class="Sidebar">
+                <p>Libraries:</p>
+                <a href="#"> Recently Added </a>
+                <a href="#"> Oldies Rock </a>
+                <a href="#"> Jazz </a>
+                <a href="#"> Instrumentals </a>
+                <a href="#"> Pop & City </a>
+                <a href="#"> IU </a>
+                <a href="#"> GFRIEND </a>
+                <a href="#"> Korean OST</a>
+            </div>
+            <div class="content"></div>
         </div>
         <!---<div class="App_Container Music_Browser_Container_Main"></div>
         <div class="App_Container Music_Settings_Container_Main"></div>>--->
@@ -79,18 +95,20 @@
         </div>
     </div>
 
+
     <!----- DOCK ----->
     <div class="app_dock" id="app_dock">
-        <a href="http://"><img src="Home.png" id="app_icon" /></a>
+        <a href="#" onclick="App_Control('close')"><img src="Music.png" id="app_icon" /></a>
         <a href="maps:"><img src="Maps.png" id="app_icon" /></a>
-        <a href="http://"><img src="Music.png" id="app_icon" /></a>
         <a href="http://"><img src="Browser.png" id="app_icon" /></a>
         <a href="http://"><img src="Settings.png" id="app_icon" /></a>
     </div>
 
+
+    <!----- MISC ----->
     <div class="Activation_bar" id="Activation_bar">
-        <a href="#" onclick="Yuna_Hide()" class="fa fa-close" id="Btn"></a>
-        <h3 onclick="Yuna_Show()">Yuna AI</h3>
+        <a href="#" onclick="Yuna_CTRL('off')" class="fa fa-close" id="Btn"></a>
+        <h3 onclick="Yuna_CTRL('on')">Yuna AI</h3>
     </div>
 </body>
 </html>

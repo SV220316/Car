@@ -1,7 +1,7 @@
 .App_Container{
     width: 65vw;
     height: 83.5vh;
-    background: #222;
+    background: white;
     border-radius: 2vh;
     margin:1vh;
     margin-top: 5vh;
@@ -36,4 +36,45 @@
     text-align: right;
     display: block;
     width: 90%;
+}
+
+.Music_App_Container_Main .Sidebar{
+    width: 25%;
+    height: 100%;
+    background: #111;
+    list-style: none;
+    padding: 0 12.5px 0 12.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Music_App_Container_Main .content{
+    width: 75%;
+    height: 100%;
+    background: #222;
+    border-left: 1px solid rgba(119, 119, 119, 0.6);
+    margin-left: 25%;
+    margin-top: -89.3%;
+}
+
+.Music_App_Container_Main .Sidebar p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #8f8f8f;
+}
+
+.Music_App_Container_Main .Sidebar a{
+    background: rgb(35, 35, 35);
+    width: calc(100% - 42.5px);
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    text-decoration: none;
+    border-radius: 1vh;
+}
+
+.Music_App_Container_Main .Sidebar a:focus{
+    background: rgb(114, 43, 255);
+    border-radius: 1vh;
 }
