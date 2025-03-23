@@ -29,7 +29,7 @@ function Core(){
             console.log("Booted Succesfully");
             animateHome();
         }, 1000);
-    }, 5000);
+    }, 50);
 }
 
 function Yuna_CTRL(ctrl){
@@ -66,35 +66,28 @@ function animateHome(){
 }
 
 function App_Control(cmd){
+    var music_window = document.getElementById("Music_Window");
+    var Browser_window = document.getElementById("Browser_Window");
+    var Settings_window = document.getElementById("Settings_Window");
     if (cmd == "I_Maps") {
         window.location.href = "maps:";
     }
     
     if(cmd == "I_Music"){
+        music_window.style.visibility = "visible";
+        music_window.style.opacity = '1';
     }
     else if(cmd == "O_Music"){
+        music_window.style.visibility = "hidden";
+        music_window.style.opacity = '0';
     }
 
     if(cmd == "I_Browser"){
+        Browser_window.style.visibility = "visible";
+        Browser_window.style.opacity = '1';
     }
     else if(cmd == "O_Browser"){
+        Browser_window.style.visibility = "hidden";
+        Browser_window.style.opacity = '0';
     }
 }
-
-function closeWindow(winID){
-    let win = document.getElementById(winID);
-    if (win){
-        win.style.visibility = "hidden";
-        win.style.opacity = '0';
-    };
-}
-function openWindow(winID){
-    let win = document.getElementById(winID);
-    if (win){
-        win.style.visibility = "visible";
-        win.style.opacity = '1';
-    };
-}
-
-
-

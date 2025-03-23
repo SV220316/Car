@@ -32,7 +32,13 @@
 
     <!----- LEFT CONTAINER ----->
     <div class="cont_left" id="LC">
-        <div class="nnn"><a href="" class="fa fa-refresh"></a> Toyota CatalystOS</div>
+        <div class="nnn">
+            <a href="" class="fa fa-refresh"></a>
+            Toyota CatalystOS
+            <a style="color:#ffc353;" class="fa-solid fa-car-battery"></a>
+            <a style="color:#ffc353;" class="fa-solid fa-circle-exclamation"></a>
+            <a style="color:#58ff58;" class="fa-solid fa-temperature-low"></a>
+        </div>
         <div class="Medium_widget" style="height: 12vh; display: flex; text-align: center;flex-direction: column;list-style: none; border: 0;">
             <h2 id="time" style="font-family:Arial,Helvetica,sans-serif;font-weight:bolder;font-size:7.5vh;margin-top:-0.75vh;color: rgb(255, 248, 239);"> 04:16 </h2>
             <h3 id="date" style="font-family:Arial,Helvetica,sans-serif;font-weight:lighter;font-size:2.5vh;margin-top:-5.5vh;color: rgb(255, 248, 239);"> Monday, June 5 </h3>
@@ -61,8 +67,8 @@
     <!----- RIGHT CONTAINER ----->
     <div class="cont_right">
         <div class="App_Container Music_App_Container_Main" id="Music_Window">
-            <div class="Control_Bar">
-                <a href="#" onclick="closeWindow('Music_Window')" class="fa fa-close"></a>
+            <div class="Control_Bar" style="background: rgba(0, 0, 0, 0.6);">
+                <a href="#" onclick="App_Control('O_Music')" class="fa fa-close"></a>
                 <p> Music </p>
             </div>
             <div class="Sidebar">
@@ -98,7 +104,7 @@
 
     <!----- DOCK ----->
     <div class="app_dock" id="app_dock">
-        <a href="#" onclick="App_Control('close')"><img src="Music.png" id="app_icon" /></a>
+        <a href="#" onclick="App_Control('I_Music')"><img src="Music.png" id="app_icon" /></a>
         <a href="maps:"><img src="Maps.png" id="app_icon" /></a>
         <a href="http://"><img src="Browser.png" id="app_icon" /></a>
         <a href="http://"><img src="Settings.png" id="app_icon" /></a>
