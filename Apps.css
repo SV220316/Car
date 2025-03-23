@@ -94,9 +94,10 @@
     padding: 20px;
     width: 78vw;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .Music_App_Container_Main .album {
-    width: auto;
+    width: 20vh;
     aspect-ratio: 1 / 1;
     background-color: #444;
     border: 1px solid white;
