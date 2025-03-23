@@ -2,6 +2,11 @@ body{
     background: url(https://4kwallpapers.com/images/wallpapers/macos-monterey-wwdc-21-stock-dark-mode-5k-6016x6016-5585.jpg);
     background-size: cover;
     margin: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 .app_dock{
     border-radius: 2.5vh;
