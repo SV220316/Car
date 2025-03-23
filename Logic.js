@@ -29,7 +29,7 @@ function Core(){
             console.log("Booted Succesfully");
             animateHome();
         }, 1000);
-    }, 50);
+    }, 5000);
 }
 
 function Yuna_CTRL(ctrl){
