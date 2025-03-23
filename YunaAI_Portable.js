@@ -96,7 +96,7 @@ function checkStatus(id) {
                     clearInterval(interval);
                     var audio = document.getElementById('audio');
                     audio.src = data_output.location;
-                    audio.style.display = "none";
+                    audio.style.display = "block";
                     audio.play();
                 }
             }
